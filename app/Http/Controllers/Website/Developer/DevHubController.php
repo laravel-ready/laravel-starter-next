@@ -10,7 +10,7 @@ class DevHubController extends Controller
     {
         $docsLinks = [
             [
-                'link' => '/devhub/dev',
+                'link' => '/devhub/docs',
                 'title' => 'Product Documentation',
                 'description' => 'Access the main product documentation and guides',
                 'icon' => 'code-bracket-square'
