@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d91e8296acad06ee0f754c474b2558cc",
+    "content-hash": "2dbe6b5fa58f1ecf1fd90b56e58d5763",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -1271,6 +1271,58 @@
                 "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.2"
             },
             "time": "2025-04-10T15:08:36+00:00"
+        },
+        {
+            "name": "laravel-ready/artisan-command-palette-ui",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-ready/artisan-command-palette-ui.git",
+                "reference": "d2223dbc4839edfcc88cf833afe9b1f74ef12d5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-ready/artisan-command-palette-ui/zipball/d2223dbc4839edfcc88cf833afe9b1f74ef12d5c",
+                "reference": "d2223dbc4839edfcc88cf833afe9b1f74ef12d5c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "php": "^8.0|^8.1|^8.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^9.0|^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelReady\\ArtisanCommandPaletteUI\\ArtisanCommandPaletteUIServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelReady\\ArtisanCommandPaletteUI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "relliv",
+                    "email": "epsilonelitt@gmail.comr"
+                }
+            ],
+            "description": "A UI for Laravel Artisan Command Palette",
+            "support": {
+                "issues": "https://github.com/laravel-ready/artisan-command-palette-ui/issues",
+                "source": "https://github.com/laravel-ready/artisan-command-palette-ui/tree/v1.0.1"
+            },
+            "time": "2025-05-08T20:01:25+00:00"
         },
         {
             "name": "laravel/framework",
