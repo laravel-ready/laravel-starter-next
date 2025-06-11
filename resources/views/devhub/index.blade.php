@@ -9,7 +9,7 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen">
+<body class="bg-gray-100 text-[#1b1b18] dark:bg-[#0a0a0a] dark:text-[#f5f5f5] min-h-screen">
 	<div class="container mx-auto px-4 py-8">
 		{{-- Header --}}
 		<header class="mb-10 flex justify-between items-center">
@@ -28,12 +28,12 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 			@foreach ($docsLinks as $docsLink)
 				<a href="{{ $docsLink['link'] }}"
-					class="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg dark:hover:bg-gray-800 transition-shadow duration-300 ease-in-out">
+					class="block bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-100 ease-in-out dark:bg-[#161615] dark:text-[#EDEDEC] hover:scale-[1.009]">
 					<div class="p-6">
 						<div class="flex items-center mb-4">
 							<x-dynamic-component :component="'heroicon-o-' . $docsLink['icon']" class="size-7 stroke-[1px]" />
 
-							<h2 class="ml-3 text-xl font-semibold text-gray-800 dark:text-gray-200">
+							<h2 class="ml-3 text-xl text-gray-800 dark:text-gray-200">
 								{{ $docsLink['title'] }}
 							</h2>
 						</div>
