@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b69c7a6419170e02b2a078b6c41fceee",
+    "content-hash": "b1b4f907592781aa254c65e27b8f9b5e",
     "packages": [
         {
             "name": "brick/math",
@@ -6068,6 +6068,415 @@
             "time": "2025-04-07T20:06:18+00:00"
         },
         {
+            "name": "dragon-code/contracts",
+            "version": "2.24.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDragonCode/contracts.git",
+                "reference": "c21ea4fc0a399bd803a2805a7f2c989749083896"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDragonCode/contracts/zipball/c21ea4fc0a399bd803a2805a7f2c989749083896",
+                "reference": "c21ea4fc0a399bd803a2805a7f2c989749083896",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5 || ^8.0",
+                "psr/http-message": "^1.0.1 || ^2.0",
+                "symfony/http-kernel": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+                "symfony/polyfill-php80": "^1.23"
+            },
+            "conflict": {
+                "andrey-helldar/contracts": "*"
+            },
+            "require-dev": {
+                "illuminate/database": "^10.0 || ^11.0 || ^12.0",
+                "phpdocumentor/reflection-docblock": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DragonCode\\Contracts\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro",
+                    "homepage": "https://dragon-code.pro"
+                }
+            ],
+            "description": "A set of contracts for any project",
+            "keywords": [
+                "contracts",
+                "interfaces"
+            ],
+            "support": {
+                "source": "https://github.com/TheDragonCode/contracts"
+            },
+            "funding": [
+                {
+                    "url": "https://boosty.to/dragon-code",
+                    "type": "boosty"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "yoomoney"
+                }
+            ],
+            "time": "2025-02-23T23:11:50+00:00"
+        },
+        {
+            "name": "dragon-code/laravel-routes-core",
+            "version": "5.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDragonCode/laravel-routes-core.git",
+                "reference": "58d9e0f4fd119266e7fa0467310f171b8d7d27fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDragonCode/laravel-routes-core/zipball/58d9e0f4fd119266e7fa0467310f171b8d7d27fe",
+                "reference": "58d9e0f4fd119266e7fa0467310f171b8d7d27fe",
+                "shasum": ""
+            },
+            "require": {
+                "dragon-code/contracts": "^2.6",
+                "dragon-code/support": "^6.1",
+                "illuminate/routing": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "illuminate/support": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "php": "^8.0",
+                "phpdocumentor/reflection-docblock": "^5.0"
+            },
+            "conflict": {
+                "andrey-helldar/laravel-routes-core": "*",
+                "laravel/lumen-framework": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+                "phpunit/phpunit": "^9.6 || ^10.0 || ^11.0 || ^12.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DragonCode\\LaravelRoutesCore\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro",
+                    "homepage": "https://dragon-code.pro"
+                }
+            ],
+            "description": "The core of applications for working with routes",
+            "keywords": [
+                "laravel",
+                "pretty",
+                "pretty-routes",
+                "route",
+                "routes",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/TheDragonCode/laravel-routes-core/issues",
+                "source": "https://github.com/TheDragonCode/laravel-routes-core"
+            },
+            "funding": [
+                {
+                    "url": "https://boosty.to/dragon-code",
+                    "type": "boosty"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "yoomoney"
+                }
+            ],
+            "time": "2025-02-24T17:23:05+00:00"
+        },
+        {
+            "name": "dragon-code/laravel-support",
+            "version": "3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDragonCode/laravel-support.git",
+                "reference": "720c14be9c26f6a034d22a57ff7d43c2c0b483e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDragonCode/laravel-support/zipball/720c14be9c26f6a034d22a57ff7d43c2c0b483e2",
+                "reference": "720c14be9c26f6a034d22a57ff7d43c2c0b483e2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": ">=6.0 <13.0",
+                "illuminate/database": ">=6.0 <13.0",
+                "illuminate/http": ">=6.0 <13.0",
+                "illuminate/support": ">=6.0 <13.0",
+                "php": "^7.2 || ^8.0",
+                "ramsey/uuid": "^3.7 || ^4.0",
+                "symfony/var-dumper": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "conflict": {
+                "andrey-helldar/laravel-support": "*"
+            },
+            "require-dev": {
+                "laravel/framework": ">=6.0 <13.0"
+            },
+            "suggest": {
+                "symfony/thanks": "Give thanks (in the form of a GitHub) to your fellow PHP package maintainers"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "helpers/dumper.php"
+                ],
+                "psr-4": {
+                    "DragonCode\\LaravelSupport\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro",
+                    "homepage": "https://dragon-code.pro"
+                }
+            ],
+            "description": "Various helper files for the Laravel and Lumen frameworks",
+            "keywords": [
+                "andrey-helldar",
+                "dragon",
+                "dragon-code",
+                "framework",
+                "laravel",
+                "lumen",
+                "support"
+            ],
+            "support": {
+                "issues": "https://github.com/TheDragonCode/laravel-support/issues",
+                "source": "https://github.com/TheDragonCode/laravel-support"
+            },
+            "funding": [
+                {
+                    "url": "https://boosty.to/dragon-code",
+                    "type": "boosty"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "yoomoney"
+                }
+            ],
+            "time": "2025-02-23T23:20:10+00:00"
+        },
+        {
+            "name": "dragon-code/pretty-routes",
+            "version": "3.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDragonCode/pretty-routes.git",
+                "reference": "330e74910385879174d823b339849cfdebcffb98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDragonCode/pretty-routes/zipball/330e74910385879174d823b339849cfdebcffb98",
+                "reference": "330e74910385879174d823b339849cfdebcffb98",
+                "shasum": ""
+            },
+            "require": {
+                "dragon-code/contracts": "^2.6",
+                "dragon-code/laravel-routes-core": "^4.1 || ^5.0",
+                "dragon-code/laravel-support": "^3.3",
+                "dragon-code/support": "^5.6 || ^6.1",
+                "ext-json": "*",
+                "illuminate/contracts": ">=6.0 <13.0",
+                "illuminate/http": ">=6.0 <13.0",
+                "illuminate/routing": ">=6.0 <13.0",
+                "illuminate/support": ">=6.0 <13.0",
+                "illuminate/view": ">=6.0 <13.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "conflict": {
+                "garygreen/pretty-routes": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": ">=4.0 <11.0",
+                "phpunit/phpunit": "^8.0 || ^9.6 || ^10.0 || ^11.0 || ^12.0"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": [
+                    {
+                        "url": "https://github.com/TheDragonCode/laravel-routes-core",
+                        "name": "dragon-code/laravel-routes-core"
+                    },
+                    {
+                        "url": "https://github.com/TheDragonCode/support",
+                        "name": "dragon-code/support"
+                    }
+                ],
+                "laravel": {
+                    "providers": [
+                        "PrettyRoutes\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PrettyRoutes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro",
+                    "homepage": "https://dragon-code.pro"
+                },
+                {
+                    "name": "Gary Green",
+                    "email": "holegary@gmail.com"
+                }
+            ],
+            "description": "Pretty Routes for Laravel",
+            "keywords": [
+                "andrey-helldar",
+                "dragon",
+                "dragon-code",
+                "laravel",
+                "pretty",
+                "pretty-routes",
+                "routes"
+            ],
+            "support": {
+                "issues": "https://github.com/TheDragonCode/pretty-routes/issues",
+                "source": "https://github.com/TheDragonCode/pretty-routes"
+            },
+            "funding": [
+                {
+                    "url": "https://boosty.to/dragon-code",
+                    "type": "boosty"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "yoomoney"
+                }
+            ],
+            "time": "2025-05-01T14:51:18+00:00"
+        },
+        {
+            "name": "dragon-code/support",
+            "version": "6.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDragonCode/support.git",
+                "reference": "ab9b657a307e75f6ba5b2b39e1e45207dc1a065a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDragonCode/support/zipball/ab9b657a307e75f6ba5b2b39e1e45207dc1a065a",
+                "reference": "ab9b657a307e75f6ba5b2b39e1e45207dc1a065a",
+                "shasum": ""
+            },
+            "require": {
+                "dragon-code/contracts": "^2.22.0",
+                "ext-bcmath": "*",
+                "ext-ctype": "*",
+                "ext-dom": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^8.1",
+                "psr/http-message": "^1.0.1 || ^2.0",
+                "symfony/polyfill-php81": "^1.25",
+                "voku/portable-ascii": "^1.4.8 || ^2.0.1"
+            },
+            "conflict": {
+                "andrey-helldar/support": "*"
+            },
+            "require-dev": {
+                "illuminate/contracts": "^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "phpunit/phpunit": "^9.6 || ^11.0 || ^12.0",
+                "symfony/var-dumper": "^6.0 || ^7.0"
+            },
+            "suggest": {
+                "dragon-code/laravel-support": "Various helper files for the Laravel and Lumen frameworks",
+                "symfony/thanks": "Give thanks (in the form of a GitHub) to your fellow PHP package maintainers"
+            },
+            "type": "library",
+            "extra": {
+                "dragon-code": {
+                    "docs-generator": {
+                        "preview": {
+                            "brand": "php",
+                            "vendor": "The Dragon Code"
+                        }
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DragonCode\\Support\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro",
+                    "homepage": "https://dragon-code.pro"
+                }
+            ],
+            "description": "Support package is a collection of helpers and tools for any project.",
+            "keywords": [
+                "dragon",
+                "dragon-code",
+                "framework",
+                "helper",
+                "helpers",
+                "laravel",
+                "php",
+                "support",
+                "symfony",
+                "yii",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/TheDragonCode/support/issues",
+                "source": "https://github.com/TheDragonCode/support"
+            },
+            "funding": [
+                {
+                    "url": "https://boosty.to/dragon-code",
+                    "type": "boosty"
+                },
+                {
+                    "url": "https://yoomoney.ru/to/410012608840929",
+                    "type": "yoomoney"
+                }
+            ],
+            "time": "2025-02-24T14:01:52+00:00"
+        },
+        {
             "name": "fakerphp/faker",
             "version": "v1.24.1",
             "source": {
@@ -8973,6 +9382,82 @@
                 }
             ],
             "time": "2024-10-20T05:08:20+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php81",
+            "version": "v1.32.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php81.git",
+                "reference": "4a4cfc2d253c21a5ad0e53071df248ed48c6ce5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/4a4cfc2d253c21a5ad0e53071df248ed48c6ce5c",
+                "reference": "4a4cfc2d253c21a5ad0e53071df248ed48c6ce5c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.32.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-09-09T11:45:10+00:00"
         },
         {
             "name": "symfony/yaml",
