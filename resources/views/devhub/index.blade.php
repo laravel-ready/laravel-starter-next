@@ -31,7 +31,7 @@
 					class="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg dark:hover:bg-gray-800 transition-shadow duration-300 ease-in-out">
 					<div class="p-6">
 						<div class="flex items-center mb-4">
-							<x-dynamic-component :component="'heroicon-o-' . $docsLink['icon']" class="size-10" />
+							<x-dynamic-component :component="'heroicon-o-' . $docsLink['icon']" class="size-7 stroke-[1px]" />
 
 							<h2 class="ml-3 text-xl font-semibold text-gray-800 dark:text-gray-200">
 								{{ $docsLink['title'] }}
