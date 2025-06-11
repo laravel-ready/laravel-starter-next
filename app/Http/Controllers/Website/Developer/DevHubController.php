@@ -16,7 +16,7 @@ class DevHubController extends Controller
                 'icon' => 'code-bracket-square'
             ],
             [
-                'link' => '/devhub/api',
+                'link' => '/docs/api',
                 'title' => 'API Documentation',
                 'description' => 'Explore API endpoints, methods and integration guides',
                 'icon' => 'code-bracket'
