@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Website\Developer;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class DevHubController extends Controller
 {
