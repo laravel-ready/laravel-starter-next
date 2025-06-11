@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the "dragon-code/pretty-routes" project.
  *
@@ -15,7 +16,7 @@
 return [
     // The endpoint to access the routes.
 
-    'url' => 'routes',
+    'url' => 'devhub/routes',
 
     // The middleware(s) to apply before attempting to access routes pages (web + api).
 
