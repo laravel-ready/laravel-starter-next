@@ -1,3 +1,3 @@
 - ## 🚀 Get Started
 
-  - [🧐 Overview](/{{route}}/{{version}}/overview)
+  - [🧐 Overview](/{{route}}/{{version}}/get-started/overview)
