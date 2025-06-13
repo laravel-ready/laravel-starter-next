@@ -7,7 +7,7 @@ services:
     tc_dev_app:
         build:
             context: .
-            dockerfile: ./.docker/local/Dockerfile
+            dockerfile: ./.docker/dev/Dockerfile
         container_name: tc_dev_app
         restart: on-failure
         ports:
@@ -28,21 +28,18 @@ services:
 
     # Database
     tc_dev_db:
-        image: mysql:latest
-        container_name: tc_dev_db
-        restart: unless-stopped
-        ports:
-            - 3307:3306
-        volumes:
-            - tc_dev_db_volume:/var/lib/mysql
-        environment:
-            MYSQL_DATABASE: ${DB_DATABASE}
-            ON_CREATE_DB: ${DB_DATABASE}
-            MYSQL_USER: ${DB_USERNAME}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-        networks:
-            - tc_dev_app_net
+      image: postgres:latest
+      container_name: tc_dev_db
+      restart: unless-stopped
+      ports:
+        - ${DB_PORT}:5432
+      volumes:
+        - .docker/dev/volumes/dev_postgres_data:/var/lib/postgresql/data
+        - .docker/dev/database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
+      environment:
+        POSTGRES_DB: ${DB_DATABASE}
+        POSTGRES_USER: ${DB_USERNAME}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
 
     # Redis
     tc_dev_redis:

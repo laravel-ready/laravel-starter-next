@@ -30,20 +30,19 @@ services:
         command: ['php', '/var/www/html/artisan', 'schedule:work']
 
     # Database
-    tc_prod_db:
-        image: mysql:latest
-        container_name: tc_prod_db
-        restart: unless-stopped
-        ports:
-            - ${DB_PORT}:3306
-        environment:
-            MYSQL_DATABASE: ${DB_DATABASE}
-            ON_CREATE_DB: ${DB_DATABASE}
-            MYSQL_USER: ${DB_USERNAME}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-        networks:
-            - tc_prod_app_net
+    tc_dev_db:
+      image: postgres:latest
+      container_name: tc_dev_db
+      restart: unless-stopped
+      ports:
+        - ${DB_PORT}:5432
+      volumes:
+        - .docker/prod/volumes/dev_postgres_data:/var/lib/postgresql/data
+        - .docker/prod/database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
+      environment:
+        POSTGRES_DB: ${DB_DATABASE}
+        POSTGRES_USER: ${DB_USERNAME}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
 
     # Redis
     tc_prod_redis:
