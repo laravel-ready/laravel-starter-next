@@ -21,7 +21,9 @@ If you want modify the **serversideup/php** configs you can check the **[servers
 
 ## 🔸 DB Containers
 
-WIP...
+By default we are using official [PostgreSQL](https://www.postgresql.org/) as database. You can modify the container configuration in the docker-compose files or remove the db service if you don't need it. Also check the `.docker/[dev|prod]/database/postgres/docker-entrypoint-initdb` folder for default database initialization scripts, extension setups etc.
+
+> {info} Default database volumes are located in `.docker/[dev|prod]/volumes/dev_postgres_data` folders.
 
 <a name="docker-compose"></a>
 
