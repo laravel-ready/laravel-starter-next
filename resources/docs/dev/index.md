@@ -6,3 +6,4 @@
   - [⬇️ Installation](/{{route}}/{{version}}/get-started/installation)
   - [🔄 Update](/{{route}}/{{version}}/get-started/update)
   - [🚀 Deployment](/{{route}}/{{version}}/get-started/deployment)
+  - [🧑‍💻 Devhub](/{{route}}/{{version}}/get-started/devhub)
