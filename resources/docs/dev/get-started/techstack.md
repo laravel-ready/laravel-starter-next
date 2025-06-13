@@ -16,7 +16,7 @@ To work with this starter you need to have the following tools installed on your
 - [Git](https://git-scm.com/): Version control system
 - [Docker](https://www.docker.com/): Containerization platform
 - [PHP](https://www.php.net/): Optional, docker container has own PHP setup
-- [Node.js](https://nodejs.org/): Required for development server, also docker container has own Node.js setup
+- [Node.js](https://nodejs.org/): Optional, docker container has own Node.js setup
 - [Composer](https://getcomposer.org/): Optional, docker container has own composer
 
 <a name="frontend"></a>
