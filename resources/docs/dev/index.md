@@ -7,3 +7,7 @@
   - [🔄 Update](/{{route}}/{{version}}/get-started/update)
   - [🚀 Deployment](/{{route}}/{{version}}/get-started/deployment)
   - [🧑‍💻 Devhub](/{{route}}/{{version}}/get-started/devhub)
+
+- ## 🧠 DX Notes
+
+  - [🧐 Overview](/{{route}}/{{version}}/dx-notes/overview)
