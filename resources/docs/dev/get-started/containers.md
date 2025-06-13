@@ -17,6 +17,8 @@ In this starter template, we use the [ServerSideUP](https://serversideup.net/)'s
 
 > {info} Default docker files: `.docker/local/Dockerfile`, `.docker/production/Dockerfile`
 
+If you want modify the **serversideup/php** configs you can check the **[serversideup/php](https://github.com/serversideup/docker-php)** repository and **[official docs](https://serversideup.net/open-source/docker-php/docs)**.
+
 ## 🔸 DB Containers
 
 WIP...
