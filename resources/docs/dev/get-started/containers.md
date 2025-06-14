@@ -30,6 +30,8 @@ By default we are using official [PostgreSQL](https://www.postgresql.org/) as da
 
 By default we are using official [Redis](https://redis.io/) as cache and session driver. You can modify the container configuration in the docker-compose files or remove the redis service if you don't need it.
 
+[PhpRedis](https://github.com/phpredis/phpredis) extension is required for Redis support. By the official [Laravel Redis Docs](https://laravel.com/docs/12.x/redis#introduction) suggestion we are using as PHP extension. This extension is installed with Dockerfiles.
+
 <a name="docker-compose"></a>
 
 ## 🔸 Docker Compose
