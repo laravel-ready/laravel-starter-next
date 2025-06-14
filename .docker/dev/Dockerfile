@@ -7,7 +7,7 @@ WORKDIR /var/www/html
 USER root
 
 # Install required php extensions
-RUN install-php-extensions zip intl exif bcmath gd pgsql sockets
+RUN install-php-extensions zip intl exif bcmath gd pgsql redis sockets
 
 # ---- Dependencies ----
 FROM base AS dependencies
