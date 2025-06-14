@@ -11,3 +11,4 @@
 - ## 🧠 DX Notes
 
   - [🧐 Overview](/{{route}}/{{version}}/dx-notes/overview)
+  - [🐞 Debugging](/{{route}}/{{version}}/dx-notes/debugging)
