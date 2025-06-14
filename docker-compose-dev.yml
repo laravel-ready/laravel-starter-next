@@ -55,15 +55,7 @@ services:
     networks:
       - ls_dev_redis_net
 
-  # MailHog Server
-  ls_dev_mail_hog:
-    image: mailhog/mailhog:latest
-    container_name: ls_dev_mail_hog
-    restart: unless-stopped
-    ports:
-      - 10001:1025
-      - 10002:8025
-
+  # Buggregator
   ls_dev_buggregator:
     image: ghcr.io/buggregator/server:latest
     container_name: ls_dev_buggregator
