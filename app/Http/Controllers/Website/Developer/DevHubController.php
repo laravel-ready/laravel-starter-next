@@ -44,6 +44,12 @@ class DevHubController extends Controller
                 'title' => 'Artisan Commands',
                 'description' => 'Run Artisan commands through the command palette UI',
                 'icon' => 'command-line'
+            ],
+            [
+                'link' => 'http://localhost:8000/',
+                'title' => 'Buggregator',
+                'description' => 'Buggregator is a bug tracking and reporting tool',
+                'icon' => 'bug-ant'
             ]
         ];
 
