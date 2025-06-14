@@ -37,7 +37,7 @@ services:
       ports:
         - ${DB_PORT}:5432
       volumes:
-        - .docker/prod/volumes/dev_postgres_data:/var/lib/postgresql/data
+        - ls_prod_db_volume:/var/lib/postgresql/data
         - .docker/prod/database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
       environment:
         POSTGRES_DB: ${DB_DATABASE}
@@ -69,3 +69,6 @@ networks:
             driver: default
             config:
                 - subnet: 10.40.0.0/16
+
+volumes:
+  ls_prod_db_volume:

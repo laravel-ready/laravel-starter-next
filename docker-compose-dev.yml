@@ -35,7 +35,7 @@ services:
     ports:
       - ${DB_PORT}:5432
     volumes:
-      - .docker/dev/volumes/dev_postgres_data:/var/lib/postgresql/data
+      - ls_dev_db_volume:/var/lib/postgresql/data
       - .docker/dev/database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
     environment:
       POSTGRES_DB: ${DB_DATABASE}
