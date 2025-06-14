@@ -30,8 +30,6 @@ By default we are using official [PostgreSQL](https://www.postgresql.org/) as da
 
 By default we are using official [Redis](https://redis.io/) as cache and session driver. You can modify the container configuration in the docker-compose files or remove the redis service if you don't need it.
 
-> {info} Default redis volumes are located in `.docker/[dev|prod]/volumes/dev_redis_data` folders.
-
 <a name="docker-compose"></a>
 
 ## 🔸 Docker Compose
