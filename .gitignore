@@ -25,3 +25,6 @@ yarn-error.log
 # VSCode
 .vscode/*
 !.vscode/settings.json
+
+# Docker
+.docker/**/volumes
