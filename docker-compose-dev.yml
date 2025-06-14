@@ -1,80 +1,95 @@
 # Example Dev Environment Setup
 
-name: tc_dev
+name: ls_dev
 
 services:
-    # Laravel App
-    tc_dev_app:
-        build:
-            context: .
-            dockerfile: ./.docker/dev/Dockerfile
-        container_name: tc_dev_app
-        restart: on-failure
-        ports:
-            - ${APP_PORT}:8080
-        volumes:
-            - ./:/var/www/html
-        environment:
-            RUN_LARAVEL_AUTOMATIONS: 'true'
-            AUTORUN_ENABLED: 'true'
-            AUTORUN_LARAVEL_STORAGE_LINK: 'true'
-            SSL_MODE: 'off'
-            PHP_POOL_NAME: 'app_pool'
-            PHP_OPCACHE_ENABLE: '1'
-        networks:
-            - tc_dev_app_net
-            - tc_dev_redis_net
-        command: ['php', '/var/www/html/artisan', 'schedule:work']
+  # Laravel App
+  ls_dev_app:
+    build:
+      context: .
+      dockerfile: ./.docker/dev/Dockerfile
+    container_name: ls_dev_app
+    restart: on-failure
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ./:/var/www/html
+    environment:
+      RUN_LARAVEL_AUTOMATIONS: 'true'
+      AUTORUN_LARAVEL_CONFIG_CACHE: 'false'
+      AUTORUN_ENABLED: 'true'
+      AUTORUN_LARAVEL_STORAGE_LINK: 'true'
+      SSL_MODE: 'off'
+      PHP_POOL_NAME: 'app_pool'
+      PHP_OPCACHE_ENABLE: '1'
+    networks:
+      - ls_dev_app_net
+      - ls_dev_redis_net
+    command: ['php', '/var/www/html/artisan', 'schedule:work']
 
-    # Database
-    tc_dev_db:
-      image: postgres:latest
-      container_name: tc_dev_db
-      restart: unless-stopped
-      ports:
-        - ${DB_PORT}:5432
-      volumes:
-        - .docker/dev/volumes/dev_postgres_data:/var/lib/postgresql/data
-        - .docker/dev/database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
-      environment:
-        POSTGRES_DB: ${DB_DATABASE}
-        POSTGRES_USER: ${DB_USERNAME}
-        POSTGRES_PASSWORD: ${DB_PASSWORD}
+  # Database
+  ls_dev_db:
+    image: postgres:latest
+    container_name: ls_dev_db
+    restart: unless-stopped
+    ports:
+      - ${DB_PORT}:5432
+    volumes:
+      - .docker/dev/volumes/dev_postgres_data:/var/lib/postgresql/data
+      - .docker/dev/database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - ls_dev_app_net
 
-    # Redis
-    tc_dev_redis:
-        image: redis:alpine
-        container_name: tc_dev_redis
-        hostname: laravel_app_x
-        restart: always
-        ports:
-            - ${REDIS_PORT}:6379
-        networks:
-            - tc_dev_redis_net
+  # Redis
+  ls_dev_redis:
+    image: redis:alpine
+    container_name: ls_dev_redis
+    hostname: laravel_app_x
+    restart: always
+    ports:
+      - ${REDIS_PORT}:6379
+    networks:
+      - ls_dev_redis_net
 
-    # MailHog Server
-    tc_dev_mail_hog:
-        image: mailhog/mailhog:latest
-        container_name: tc_dev_mail_hog
-        restart: unless-stopped
-        ports:
-            - 10001:1025
-            - 10002:8025
+  # MailHog Server
+  ls_dev_mail_hog:
+    image: mailhog/mailhog:latest
+    container_name: ls_dev_mail_hog
+    restart: unless-stopped
+    ports:
+      - 10001:1025
+      - 10002:8025
+
+  ls_dev_buggregator:
+    image: ghcr.io/buggregator/server:latest
+    container_name: ls_dev_buggregator
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+      - 1025:1025
+      - 9912:9912
+      - 9913:9913
+    networks:
+      - ls_dev_app_net
 
 networks:
-    tc_dev_app_net:
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-                - subnet: 10.30.0.0/16
+  ls_dev_app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.100.0.0/16
 
-    tc_dev_redis_net:
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-                - subnet: 10.60.0.0/16
+  ls_dev_redis_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.90.0.0/16
 
 volumes:
-    tc_dev_db_volume:
+  ls_dev_db_volume:

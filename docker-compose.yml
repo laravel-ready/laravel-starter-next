@@ -1,14 +1,14 @@
 # Example Prod Environment Setup
 
-name: tc_prod
+name: ls_prod
 
 services:
     # Laravel App
-    tc_prod_app:
+    ls_prod_app:
         build:
             context: .
             dockerfile: ./.docker/prod/Dockerfile
-        container_name: tc_prod_app
+        container_name: ls_prod_app
         stdin_open: true
         tty: true
         restart: always
@@ -25,14 +25,14 @@ services:
             PHP_POOL_NAME: 'app_pool'
             PHP_OPCACHE_ENABLE: '1'
         networks:
-            - tc_prod_app_net
-            - tc_prod_redis_net
+            - ls_prod_app_net
+            - ls_prod_redis_net
         command: ['php', '/var/www/html/artisan', 'schedule:work']
 
     # Database
-    tc_dev_db:
+    ls_dev_db:
       image: postgres:latest
-      container_name: tc_dev_db
+      container_name: ls_dev_db
       restart: unless-stopped
       ports:
         - ${DB_PORT}:5432
@@ -45,25 +45,25 @@ services:
         POSTGRES_PASSWORD: ${DB_PASSWORD}
 
     # Redis
-    tc_prod_redis:
+    ls_prod_redis:
         image: redis:alpine
-        container_name: tc_prod_redis
-        hostname: tc_prod_app
+        container_name: ls_prod_redis
+        hostname: ls_prod_app
         restart: always
         ports:
             - ${REDIS_PORT}:6379
         networks:
-            - tc_prod_redis_net
+            - ls_prod_redis_net
 
 networks:
-    tc_prod_app_net:
+    ls_prod_app_net:
         driver: bridge
         ipam:
             driver: default
             config:
                 - subnet: 10.10.0.0/16
 
-    tc_prod_redis_net:
+    ls_prod_redis_net:
         driver: bridge
         ipam:
             driver: default

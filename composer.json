@@ -21,6 +21,7 @@
         "tightenco/ziggy": "^2.4"
     },
     "require-dev": {
+        "buggregator/trap": "^1.13",
         "dragon-code/pretty-routes": "^3.7",
         "fakerphp/faker": "^1.23",
         "itsgoingd/clockwork": "^5.3",
