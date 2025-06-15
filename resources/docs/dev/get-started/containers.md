@@ -30,8 +30,6 @@ By default we are using official [Redis](https://redis.io/) as cache and session
 
 [PhpRedis](https://github.com/phpredis/phpredis) extension is required for Redis support. By the official [Laravel Redis Docs](https://laravel.com/docs/12.x/redis#introduction) suggestion we are using as PHP extension. This extension is installed with Dockerfiles.
 
-<a name="docker-compose"></a>
-
 ## 🔸 Docker Compose
 
 In this project all features are containerized and can be run with a single command. You can run the following command to start all containers:
@@ -51,3 +49,17 @@ docker compose up -d
 You can modify the docker-compose files if needed (e.g. adding services, removing services etc.).
 
 > {info} Default docker-compose files: `./docker-compose.yml`, `./docker-compose-dev.yml`
+
+Some changes are not affected by docker-compose files. For example, when you change the database user or password, `.env` changes won't affect the containers. You need to rebuild the containers to apply the changes with `--build` flag.
+
+Dev:
+
+```bash
+docker compose -f docker-compose-dev.yml up -d --build
+```
+
+Prod:
+
+```bash
+docker compose up -d --build
+```
