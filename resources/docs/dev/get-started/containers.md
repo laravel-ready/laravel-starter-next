@@ -50,7 +50,7 @@ You can modify the docker-compose files if needed (e.g. adding services, removin
 
 > {info} Default docker-compose files: `./docker-compose.yml`, `./docker-compose-dev.yml`
 
-Some changes are not affected by docker-compose files. For example, when you change the database user or password, `.env` changes won't affect the containers. You need to rebuild the containers to apply the changes with `--build` flag.
+Some changes are not affected by docker-compose files. For example, when you change the database user/password or install/remove new PHP extension, `.env` or `Dockerfile` changes won't affect the containers. You need to rebuild the containers to apply the changes with `--build` flag.
 
 Dev:
 
