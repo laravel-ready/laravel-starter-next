@@ -9,8 +9,7 @@ With pre-configured logging, debugging and profiling tools, you can easily debug
     - [🔸 Inline Logging](#-inline-logging)
     - [🔸 Mail Capturing](#-mail-capturing)
     - [🔸 Xhprof](#-xhprof)
-
-<a name="buggregator"></a>
+  - [🔸 References](#-references)
 
 ## 🔸 Buggregator
 
@@ -46,3 +45,8 @@ $profiler->start();
 
 $profiler->end();
 ```
+
+## 🔸 References
+
+- [Buggregator](https://buggregator.dev/), [docs](https://docs.buggregator.dev/)
+- [Xhprof](https://www.php.net/manual/en/book.xhprof.php)
