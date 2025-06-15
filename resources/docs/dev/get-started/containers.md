@@ -10,8 +10,6 @@ While working or developing with this starter, you can use the following contain
   - [🔸 Redis Container](#-redis-container)
   - [🔸 Docker Compose](#-docker-compose)
 
-<a name="php-containers"></a>
-
 ## 🔸 PHP Containers
 
 In this starter template, we use the [ServerSideUP](https://serversideup.net/)'s **[serversideup/php](https://serversideup.net/open-source/docker-php/)** container as base PHP container. You can modify the container configuration in the Dockerfiles if needed (e.g. adding extensions, removing Node.js setup etc.).

@@ -9,8 +9,6 @@ To work with this starter you need to have the following tools installed on your
   - [🔸 Frontend](#-frontend)
   - [🔸 Development Tools](#-development-tools)
 
-<a name="backend"></a>
-
 ## 🔸 Backend
 
 - [Git](https://git-scm.com/): Version control system
@@ -20,14 +18,10 @@ To work with this starter you need to have the following tools installed on your
 - [Node.js](https://nodejs.org/): Optional, docker container has own Node.js setup
 - [Composer](https://getcomposer.org/): Optional, docker container has own composer
 
-<a name="frontend"></a>
-
 ## 🔸 Frontend
 
 - [Vue](https://vuejs.org/): Primary frontend framework
 - [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework
-
-<a name="development-tools"></a>
 
 ## 🔸 Development Tools
 
