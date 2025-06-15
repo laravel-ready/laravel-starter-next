@@ -1,6 +1,6 @@
 # 🐞 Debugging
 
-With pre-configured logging and debugging tools, you can easily debug your application. There are multiple tools for different purposes.
+With pre-configured logging, debugging and profiling tools, you can easily debug your application. There are multiple tools for different purposes.
 
 ---
 
@@ -8,6 +8,7 @@ With pre-configured logging and debugging tools, you can easily debug your appli
   - [🔸 Buggregator](#-buggregator)
     - [🔸 Inline Logging](#-inline-logging)
     - [🔸 Mail Capturing](#-mail-capturing)
+    - [🔸 Xhprof](#-xhprof)
 
 <a name="buggregator"></a>
 
@@ -28,3 +29,20 @@ trap('info', 'Hello World');
 ### 🔸 Mail Capturing
 
 Buggregator also supports **[SMTP](https://docs.buggregator.dev/config/smtp.html)** for sending emails. It's automatically captured and sent to the Buggregator server.
+
+### 🔸 Xhprof
+
+**[Xhprof](https://www.php.net/manual/en/book.xhprof.php)** is a performance profiling tool for PHP. It's automatically captured and sent to the Buggregator server. This tool is installed in the `.docker/dev/Dockerfile` and implemented with [maantje/xhprof-buggregator-laravel](https://github.com/maantje/xhprof-buggregator-laravel) laravel package.
+
+Usage:
+
+```php
+use SpiralPackages\Profiler\Profiler;
+
+$profiler = app(Profiler::class);
+$profiler->start();
+
+// your logic...
+
+$profiler->end();
+```
