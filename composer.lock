@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4f39b5f5613f7ca506b85d6b6ae1f3e",
+    "content-hash": "633710bdc8ccb1c6f79352bbb5dd7574",
     "packages": [
         {
             "name": "binarytorch/larecipe",
@@ -1627,6 +1627,58 @@
                 "source": "https://github.com/laravel-ready/artisan-command-palette-ui/tree/v1.0.1"
             },
             "time": "2025-05-08T20:01:25+00:00"
+        },
+        {
+            "name": "laravel-ready/hasin",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-ready/hasin.git",
+                "reference": "118d0842d32ccf5e7a815a348fd2635b28685c44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-ready/hasin/zipball/118d0842d32ccf5e7a815a348fd2635b28685c44",
+                "reference": "118d0842d32ccf5e7a815a348fd2635b28685c44",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BiiiiiigMonster\\Hasin\\HasinServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BiiiiiigMonster\\Hasin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "YunFeng Lu",
+                    "email": "603707288@qq.com"
+                }
+            ],
+            "description": "Laravel framework relation has in implement",
+            "keywords": [
+                "laravel",
+                "orm",
+                "relation",
+                "whereHas"
+            ],
+            "support": {
+                "source": "https://github.com/laravel-ready/hasin/tree/v2.0.0"
+            },
+            "time": "2022-05-12T09:18:43+00:00"
         },
         {
             "name": "laravel/framework",
@@ -11237,7 +11289,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
