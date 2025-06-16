@@ -108,7 +108,7 @@ jobs:
                   DB_PASSWORD: tailwind_components
               run: php artisan migrate:fresh --seed
 
-            - name: 🧪 Execute tests (Unit and Feature tests) via PHPUnit
+            - name: 🧪 Execute tests (Unit and Feature tests) via Pest
               env:
                   DB_CONNECTION: pgsql
                   DB_DATABASE: tailwind_components
@@ -116,4 +116,4 @@ jobs:
                   DB_USERNAME: tailwind_components
                   DB_HOST: 127.0.0.1
                   DB_PASSWORD: tailwind_components
-              run: vendor/bin/phpunit --testdox
+              run: vendor/bin/pest --testdox

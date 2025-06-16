@@ -10,9 +10,13 @@ Route::prefix('devhub')->name('developer.')->middleware(DevhubMiddleware::class)
     Route::get('/', [Developer\DevHubController::class, 'index'])->name('devhub.index');
 });
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
+Route::get('/', function(){
+    return view('web.pages.landing.index');
 })->name('home');
+
+Route::get('/app', function () {
+    return Inertia::render('Welcome');
+})->name('app');
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
