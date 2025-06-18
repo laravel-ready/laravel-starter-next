@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cccd5f8b436d9a87d87ed6bf3ce2c683",
+    "content-hash": "633710bdc8ccb1c6f79352bbb5dd7574",
     "packages": [
         {
             "name": "binarytorch/larecipe",
@@ -410,16 +410,16 @@
         },
         {
             "name": "dedoc/scramble",
-            "version": "v0.12.22",
+            "version": "v0.12.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dedoc/scramble.git",
-                "reference": "3c06a756d4fc20a281638e8ba9941f6463000d78"
+                "reference": "5b650167c81c59138e844c2ae550c14dc1a249d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dedoc/scramble/zipball/3c06a756d4fc20a281638e8ba9941f6463000d78",
-                "reference": "3c06a756d4fc20a281638e8ba9941f6463000d78",
+                "url": "https://api.github.com/repos/dedoc/scramble/zipball/5b650167c81c59138e844c2ae550c14dc1a249d0",
+                "reference": "5b650167c81c59138e844c2ae550c14dc1a249d0",
                 "shasum": ""
             },
             "require": {
@@ -478,7 +478,7 @@
             ],
             "support": {
                 "issues": "https://github.com/dedoc/scramble/issues",
-                "source": "https://github.com/dedoc/scramble/tree/v0.12.22"
+                "source": "https://github.com/dedoc/scramble/tree/v0.12.23"
             },
             "funding": [
                 {
@@ -486,7 +486,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-06-03T07:50:53+00:00"
+            "time": "2025-06-15T09:04:49+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1629,17 +1629,69 @@
             "time": "2025-05-08T20:01:25+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v12.18.0",
+            "name": "laravel-ready/hasin",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "7d264a0dad2bfc5c154240b38e8ce9b2c4cdd14d"
+                "url": "https://github.com/laravel-ready/hasin.git",
+                "reference": "118d0842d32ccf5e7a815a348fd2635b28685c44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7d264a0dad2bfc5c154240b38e8ce9b2c4cdd14d",
-                "reference": "7d264a0dad2bfc5c154240b38e8ce9b2c4cdd14d",
+                "url": "https://api.github.com/repos/laravel-ready/hasin/zipball/118d0842d32ccf5e7a815a348fd2635b28685c44",
+                "reference": "118d0842d32ccf5e7a815a348fd2635b28685c44",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BiiiiiigMonster\\Hasin\\HasinServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BiiiiiigMonster\\Hasin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "YunFeng Lu",
+                    "email": "603707288@qq.com"
+                }
+            ],
+            "description": "Laravel framework relation has in implement",
+            "keywords": [
+                "laravel",
+                "orm",
+                "relation",
+                "whereHas"
+            ],
+            "support": {
+                "source": "https://github.com/laravel-ready/hasin/tree/v2.0.0"
+            },
+            "time": "2022-05-12T09:18:43+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v12.19.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "97c581cb23bdc3147aab0d5087b19167d329991e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/97c581cb23bdc3147aab0d5087b19167d329991e",
+                "reference": "97c581cb23bdc3147aab0d5087b19167d329991e",
                 "shasum": ""
             },
             "require": {
@@ -1841,7 +1893,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-06-10T14:48:34+00:00"
+            "time": "2025-06-17T23:44:27+00:00"
         },
         {
             "name": "laravel/prompts",
