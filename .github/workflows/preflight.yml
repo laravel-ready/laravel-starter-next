@@ -87,7 +87,9 @@ jobs:
 
       - name: 📦 Install Composer Dependencies
         if: steps.vendor-cache.outputs.cache-hit != 'true'
-        run: composer install --no-dev --no-interaction --prefer-dist
+        run: |
+          composer install --no-interaction --prefer-dist
+          composer remove maantje/xhprof-buggregator-laravel
 
       - name: 🔧 Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
