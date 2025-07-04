@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "laravel-ready/laravel-starter-next",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Next generation Laravel starter template",
     "keywords": [
         "laravel",
         "framework"
