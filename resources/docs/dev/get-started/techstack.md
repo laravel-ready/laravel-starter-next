@@ -20,6 +20,7 @@ To work with this starter you need to have the following tools installed on your
 
 ## 🔸 Frontend
 
+- [Vite](https://vite.dev/): A fast, modern frontend tooling
 - [Vue](https://vuejs.org/): Primary frontend framework
 - [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework
 
