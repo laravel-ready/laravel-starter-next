@@ -89,7 +89,7 @@ jobs:
         if: steps.vendor-cache.outputs.cache-hit != 'true'
         run: |
           composer install --no-interaction --prefer-dist
-          composer remove maantje/xhprof-buggregator-laravel
+          composer remove maantje/xhprof-buggregator-laravel --no-interaction --dev
 
       - name: 🔧 Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
