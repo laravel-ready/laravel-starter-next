@@ -10,8 +10,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "binarytorch/larecipe": "^2.8",
-        "binarytorch/larecipe-dark-theme": "^0.1.5",
         "blade-ui-kit/blade-heroicons": "^2.6",
         "dedoc/scramble": "^0.13",
         "inertiajs/inertia-laravel": "^2.0",
