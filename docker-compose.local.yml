@@ -21,7 +21,6 @@ services:
     networks:
       - ls_local_app_net
       - ls_local_redis_net
-    command: ["php", "/var/www/html/artisan", "schedule:work"]
 
   # Web App Scheduler
   ls_local_app_scheduler:
