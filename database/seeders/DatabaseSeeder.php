@@ -11,9 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        if (env('APP_ENV') === 'local' || env('APP_ENV') === 'dev') {
+        if (env('APP_ENV') === 'local') {
+            $this->call([LocalSeeder::class]);
+        } else if (env('APP_ENV') === 'dev') {
             $this->call([DevSeeder::class]);
-        } else {
+        } else if (env('APP_ENV') === 'prod') {
             $this->call([ProdSeeder::class]);
         }
     }
