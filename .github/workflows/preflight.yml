@@ -1,39 +1,27 @@
-name: 'Preflight Tests'
+name: ✈️ Preflight Tests
 
 on:
   push:
-    branches: [main]
+    branches: [dev, main]
   pull_request:
-    branches: [main]
+    branches: [dev, main]
 
 jobs:
-  tests:
+  # ============================================
+  # Frontend Tests - Vitest (Vue/JS unit tests)
+  # ============================================
+  frontend-tests:
+    name: 🧪 Frontend Tests
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_DB: tailwind_components
-          POSTGRES_USER: tailwind_components
-          POSTGRES_PASSWORD: tailwind_components
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd="pg_isready"
-          --health-interval=5s
-          --health-timeout=5s
-          --health-retries=3
 
     steps:
       - name: 🗂 Checkout Code
-        uses: actions/checkout@v4
-        with:
-          submodules: 'true'
+        uses: actions/checkout@v6
 
       - name: 🧩 Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '24.x'
+          node-version: "24.x"
 
       - name: 📦 Install PNPM
         run: npm i pnpm -g
@@ -43,17 +31,97 @@ jobs:
         id: node_modules-cache
         with:
           path: node_modules
-          key: ${{ runner.OS }}-node_modules-cache-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-node_modules-cache-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: 🚀 Install NPM Packages
         if: steps.node_modules-cache.outputs.cache-hit != 'true'
         run: pnpm i
 
+      - name: 🧪 Execute Vue/JS tests via Vitest
+        run: pnpm test:run
+
+  # ============================================
+  # Frontend Build - Vite compilation check
+  # ============================================
+  frontend-build:
+    name: 🏗 Frontend Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🗂 Checkout Code
+        uses: actions/checkout@v6
+
+      - name: 🧩 Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24.x"
+
+      - name: 📦 Install PNPM
+        run: npm i pnpm -g
+
+      - name: 🗃 Cache node_modules Directory
+        uses: actions/cache@v4
+        id: node_modules-cache
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-node_modules-cache-${{ hashFiles('**/package.json') }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: 🚀 Install NPM Packages
+        if: steps.node_modules-cache.outputs.cache-hit != 'true'
+        run: pnpm i
+
+      - name: 🏗 Build Frontend with Vite
+        run: pnpm build
+
+      - name: 📤 Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: public/build
+          retention-days: 1
+
+  # ============================================
+  # Backend Tests - Pest (PHP tests)
+  # ============================================
+  backend-tests:
+    name: 🐘 Backend Tests
+    needs: frontend-build
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: preflight_laravel_app
+          POSTGRES_USER: preflight_laravel_app
+          POSTGRES_PASSWORD: preflight_laravel_app
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=3
+
+      redis:
+        image: redis:latest
+        ports:
+          - 6330:6379
+        options: >-
+          --health-cmd="redis-cli ping"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: 🗂 Checkout Code
+        uses: actions/checkout@v6
+
       - name: 🗃 Setup Cache Environment
         id: extcache
         uses: shivammathur/cache-extensions@v1
         with:
-          php-version: 8.3
+          php-version: 8.5
           extensions: bcmath
           key: php_extensions_cache
 
@@ -67,13 +135,8 @@ jobs:
       - name: 🐘 Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: "8.5"
           extensions: bcmath
-
-      - name: 🗄 Get Composer Cache Directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
 
       - name: 🗂 Cache PHP Dependencies
         uses: actions/cache@v4
@@ -87,9 +150,7 @@ jobs:
 
       - name: 📦 Install Composer Dependencies
         if: steps.vendor-cache.outputs.cache-hit != 'true'
-        run: |
-          composer install --no-interaction --prefer-dist
-          composer remove maantje/xhprof-buggregator-laravel --no-interaction --dev
+        run: composer install --no-interaction --prefer-dist
 
       - name: 🔧 Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
@@ -97,25 +158,32 @@ jobs:
       - name: 🔑 Generate App Key
         run: php artisan key:generate
 
-      - name: 🏗 Build Frontend with Vite
-        run: pnpm build
+      - name: 📥 Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: public/build
 
       - name: 🔄 Run Migrations
         env:
           DB_CONNECTION: pgsql
-          DB_DATABASE: tailwind_components
-          DB_PORT: 5432
-          DB_USERNAME: tailwind_components
           DB_HOST: 127.0.0.1
-          DB_PASSWORD: tailwind_components
+          DB_PORT: 5432
+          DB_DATABASE: preflight_laravel_app
+          DB_USERNAME: preflight_laravel_app
+          DB_PASSWORD: preflight_laravel_app
+          REDIS_HOST: 127.0.0.1
+          REDIS_PORT: 6330
         run: php artisan migrate:fresh --seed
 
       - name: 🧪 Execute tests (Unit and Feature tests) via Pest
         env:
           DB_CONNECTION: pgsql
-          DB_DATABASE: tailwind_components
-          DB_PORT: 5432
-          DB_USERNAME: tailwind_components
           DB_HOST: 127.0.0.1
-          DB_PASSWORD: tailwind_components
+          DB_PORT: 5432
+          DB_DATABASE: preflight_laravel_app
+          DB_USERNAME: preflight_laravel_app
+          DB_PASSWORD: preflight_laravel_app
+          REDIS_HOST: 127.0.0.1
+          REDIS_PORT: 6330
         run: vendor/bin/pest --testdox
