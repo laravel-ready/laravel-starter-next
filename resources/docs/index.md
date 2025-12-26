@@ -22,10 +22,7 @@ features:
     title: DX Notes
     details: Developer experience notes including debugging and automation tips.
     link: /dx-notes/overview
-  - icon: 📦
-    title: Version 1.0
-    details: Documentation for version 1.0 of Laravel Starter.
-    link: /1.0/overview
+
 ---
 
 ## Quick Links
