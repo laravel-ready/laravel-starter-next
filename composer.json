@@ -17,6 +17,7 @@
         "inertiajs/inertia-laravel": "^2.0",
         "laravel-ready/artisan-command-palette-ui": "^1.0",
         "laravel-ready/hasin": "^2.0",
+        "laravel-ready/laravel-vitepress": "^1.2",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "opcodesio/log-viewer": "^3.17",
