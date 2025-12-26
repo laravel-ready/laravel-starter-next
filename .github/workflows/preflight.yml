@@ -65,7 +65,7 @@ jobs:
 
       - name: 📦 Install Composer Dependencies
         if: steps.vendor-cache.outputs.cache-hit != 'true'
-        run: composer install --no-interaction --prefer-dist --no-scripts
+        run: composer install --no-interaction --prefer-dist --no-scripts --ignore-platform-reqs
 
       - name: 🧩 Setup Node.js
         uses: actions/setup-node@v6
