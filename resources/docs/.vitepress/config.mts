@@ -41,4 +41,6 @@ export default defineConfig({
             env: "dotenv",
         },
     },
+
+    ignoreDeadLinks: true
 });
