@@ -1,0 +1,133 @@
+services:
+  # Laravel App
+  ls_local_app:
+    build:
+      context: .
+      dockerfile: ./.docker/local/Dockerfile
+    container_name: ls_local_app
+    restart: on-failure
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ./:/var/www/html
+    environment: &laravel_env
+      RUN_LARAVEL_AUTOMATIONS: "false"
+      AUTORUN_ENABLED: "false"
+      AUTORUN_LARAVEL_STORAGE_LINK: "true"
+      AUTORUN_LARAVEL_MIGRATION: "true"
+      SSL_MODE: "off"
+      PHP_POOL_NAME: "app_pool"
+      PHP_OPCACHE_ENABLE: "1"
+    networks:
+      - ls_local_app_net
+      - ls_local_redis_net
+    command: ["php", "/var/www/html/artisan", "schedule:work"]
+
+  # Web App Scheduler
+  ls_local_app_scheduler:
+    build:
+      context: .
+      dockerfile: ./.docker/local/Dockerfile
+    container_name: ls_local_app_scheduler
+    restart: always
+    volumes:
+      - ./:/var/www/html
+    environment:
+      RUN_LARAVEL_AUTOMATIONS: "false"
+      AUTORUN_ENABLED: "false"
+      AUTORUN_LARAVEL_STORAGE_LINK: "true"
+      AUTORUN_LARAVEL_MIGRATION: "true"
+      SSL_MODE: "off"
+      PHP_POOL_NAME: "app_pool"
+      PHP_OPCACHE_ENABLE: "1"
+      LOG_CHANNEL: "stderr"
+    depends_on:
+      - ls_local_app
+      - ls_local_db
+      - ls_local_redis
+    networks:
+      - ls_local_app_net
+      - ls_local_redis_net
+    command: ["php", "/var/www/html/artisan", "schedule:work"]
+
+  # Web App Worker
+  ls_local_app_worker:
+    build:
+      context: .
+      dockerfile: ./.docker/local/Dockerfile
+    container_name: ls_local_app_worker
+    restart: always
+    stop_signal: SIGTERM
+    volumes:
+      - ./:/var/www/html
+    environment:
+      <<: *laravel_env
+      LOG_CHANNEL: "stderr"
+    depends_on:
+      - ls_local_app
+      - ls_local_db
+      - ls_local_redis
+    networks:
+      - ls_local_app_net
+      - ls_local_redis_net
+    command:
+      [
+        "php",
+        "/var/www/html/artisan",
+        "queue:work",
+        "--queue=web-app-default",
+        "--tries=3",
+        "--timeout=200",
+        "--max-time=3600",
+        "--memory=128",
+      ]
+
+  # Database
+  ls_local_db:
+    image: postgres:latest
+    container_name: ls_local_db
+    restart: unless-stopped
+    ports:
+      - ${DB_PORT}:5432
+    volumes:
+      - ls_local_db_volume:/var/lib/postgresql/data
+      - .docker/local/database/postgres/docker-entrypoint-initdb:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - ls_local_app_net
+
+  # Redis
+  ls_local_redis:
+    image: redis:alpine
+    container_name: ls_local_redis
+    hostname: laravel_app_x
+    restart: always
+    ports:
+      - ${REDIS_PORT}:6379
+    networks:
+      - ls_local_redis_net
+
+  # Buggregator
+  ls_local_buggregator:
+    image: ghcr.io/buggregator/server:latest
+    container_name: ls_local_buggregator
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+      - 1025:1025
+      - 9912:9912
+      - 9913:9913
+    networks:
+      - ls_local_app_net
+
+networks:
+  ls_local_app_net:
+    external: false
+  ls_local_redis_net:
+    external: false
+
+volumes:
+  ls_local_db_volume:
